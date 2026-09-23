@@ -42,5 +42,5 @@ form.addEventListener('submit', (event) => {
     `${lang === 'en' ? 'Project' : 'Proyecto'}:`,
     data.get('message') || ''
   ];
-  window.location.href = `mailto:ceo@mariapazbravo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  window.location.href = `mailto:ceodecoracion@mariapazbravo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
 });
