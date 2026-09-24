@@ -24,23 +24,3 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   nav.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
 }));
-
-const form = document.querySelector('#contact-form');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const data = new FormData(form);
-  const lang = root.lang;
-  const subject = lang === 'en' ? 'Interior design consultation request' : 'Solicitud de consulta de interiorismo';
-  const lines = [
-    `${lang === 'en' ? 'Name' : 'Nombre'}: ${data.get('name') || ''}`,
-    `Email: ${data.get('email') || ''}`,
-    `${lang === 'en' ? 'City / country' : 'Ciudad / país'}: ${data.get('city') || ''}`,
-    `${lang === 'en' ? 'Service' : 'Servicio'}: ${data.get('service') || ''}`,
-    `${lang === 'en' ? 'Estimated timeline' : 'Plazo estimado'}: ${data.get('timeline') || ''}`,
-    `${lang === 'en' ? 'Approximate budget' : 'Presupuesto aproximado'}: ${data.get('budget') || ''}`,
-    '',
-    `${lang === 'en' ? 'Project' : 'Proyecto'}:`,
-    data.get('message') || ''
-  ];
-  window.location.href = `mailto:ceodecoracion@mariapazbravo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
-});
